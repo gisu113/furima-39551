@@ -38,7 +38,6 @@
 | Column | Type | Option | 
 |-|-|-|
 | id(PK) |	integer |	null: false, foreign_key: true |
-| user(FK) |	references |	null: false, foreign_key: true |
 | postal_code | string | null: false |
 | prefecture_id | integer | null: false |
 | city | string | null: false |
@@ -48,13 +47,15 @@
 
 ### Association
 - belongs_to :order
-- belongs_to :user
 
 ## ordersテーブル
 | Column | Type | Option | 
 |-|-|-|
 | id(PK) | integer | null: false, foreign_key: true |
 | user(FK) | references |	null: false, foreign_key: true |
+| item_id(FK) |	references |	null: false, foreign_key: true |
+| address_id(FK) |	references |	null: false, foreign_key: true |
+
 
 ### Association
 - belongs_to :item
