@@ -37,7 +37,7 @@
 ## addressesテーブル
 | Column | Type | Option | 
 |-|-|-|
-| id(PK) |	integer |	null: false, foreign_key: true |
+| id(PK) | integer |	null: false, foreign_key: true |
 | order(FK) | references | null: false, foreign_key: true |
 | postal_code | string | null: false |
 | prefecture_id | integer | null: false |
@@ -54,7 +54,7 @@
 |-|-|-|
 | id(PK) | integer | null: false, foreign_key: true |
 | user(FK) | references |	null: false, foreign_key: true |
-| item(FK) |	references |	null: false, foreign_key: true |
+| item(FK) | references |	null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
