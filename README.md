@@ -14,6 +14,7 @@
 
 ### Association
 - has_many :items
+- has_many :orders
 
 ## itemsテーブル
 | Column | Type | Option |
@@ -31,3 +32,28 @@
 
 ### Association
 - belongs_to :user
+- has_one :order
+
+## addressesテーブル
+| Column | Type | Option | 
+|-|-|-|
+| postal_code | string | null: false |
+| prefecture | integer | null: false |
+| city | string | null: false |
+| house_number | string | null: false |
+| building_name | string |
+| phone_number | string | null: false |
+
+### Association
+- belongs_to :order
+
+## ordersテーブル
+| Column | Type | Option | 
+|-|-|-|
+| nickname | string | null: false |
+| name | string | null: false |
+
+### Association
+- belongs_to :item
+- belongs_to :users
+- has_one :address
