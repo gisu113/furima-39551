@@ -37,7 +37,7 @@
 ## addressesテーブル
 | Column | Type | Option | 
 |-|-|-|
-| id(PK) | integer |	null: false, foreign_key: true |
+| id(PK) | integer | null: false |
 | order(FK) | references | null: false, foreign_key: true |
 | postal_code | string | null: false |
 | prefecture_id | integer | null: false |
@@ -52,7 +52,7 @@
 ## ordersテーブル
 | Column | Type | Option | 
 |-|-|-|
-| id(PK) | integer | null: false, foreign_key: true |
+| id(PK) | integer | null: false |
 | user(FK) | references |	null: false, foreign_key: true |
 | item(FK) | references |	null: false, foreign_key: true |
 
