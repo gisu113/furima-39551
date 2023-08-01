@@ -1,4 +1,4 @@
 class Address < ApplicationRecord
-  has_many :items
+  attr_accessor :token
   belongs_to :order
 end
