@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def index
     @item = Item.find(params[:item_id])
     @orderaddress = OrderAddress.new
-    end
+  end
 
   private
     def configure_permitted_parameters
