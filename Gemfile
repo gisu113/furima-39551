@@ -67,6 +67,10 @@ gem 'rubocop', require: false
   # gem "spring"
 end
 
+group :production do
+  gem 'unicorn', '6.1.0'
+end
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
