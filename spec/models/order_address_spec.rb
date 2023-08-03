@@ -4,7 +4,8 @@ RSpec.describe OrderAddress, type: :model do
   describe '配送先の住所情報も購入の都度入力させること' do
     before do
       user = FactoryBot.create(:user)
-      @order_address = FactoryBot.build(:order_address, user_id: user.id)
+      item = FactoryBot.create(:item)
+      @order_address = FactoryBot.build(:order_address, user_id: user.id, item_id: item.id)
     end
 
     context '内容に問題ない場合' do
