@@ -13,37 +13,31 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    if @item.save
-      return redirect_to root_path
-    else
-      render 'new', status: :unprocessable_entity
-    end
+    return redirect_to root_path if @item.save
+
+    render 'new', status: :unprocessable_entity
   end
 
   def show
     @item = Item.find(params[:id])
-    if user_signed_in?
-      @order = @item.orders.find_by(user_id: current_user.id)
-    end
+    return unless user_signed_in?
+
+    @order = @item.orders.find_by(user_id: current_user.id)
   end
 
   def edit
   end
 
   def update
-    if @item.update(item_params)
-      return redirect_to item_path(@item)
-    else
-      render 'edit', status: :unprocessable_entity
-    end
+    return redirect_to item_path(@item) if @item.update(item_params)
+
+    render 'edit', status: :unprocessable_entity
   end
 
   def destroy
-    if @item.destroy
-      return redirect_to root_path
-    else
-      render 'show', status: :unprocessable_entity
-    end
+    return redirect_to root_path if @item.destroy
+
+    render 'show', status: :unprocessable_entity
   end
 
   private
