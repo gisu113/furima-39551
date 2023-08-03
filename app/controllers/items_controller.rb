@@ -14,33 +14,26 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     return redirect_to root_path if @item.save
-
     render 'new', status: :unprocessable_entity
   end
 
   def show
-    @item = Item.find(params[:id])
     return unless user_signed_in?
 
     @order = @item.orders.find_by(user_id: current_user.id)
   end
 
   def edit
-    @item = Item.find(params[:id])
-    if @item.user_id != @item.user && @item.orders.exists?
-      redirect_to root_path
-    end
+    redirect_if_item_not_allowed
   end
 
   def update
     return redirect_to item_path(@item) if @item.update(item_params)
-
     render 'edit', status: :unprocessable_entity
   end
 
   def destroy
     return redirect_to root_path if @item.destroy
-
     render 'show', status: :unprocessable_entity
   end
 
@@ -66,5 +59,12 @@ class ItemsController < ApplicationController
 
   def redirect_to_show
     return redirect_to root_path if current_user.id != @item.user.id
+  end
+
+  def redirect_if_item_not_allowed
+    @item = Item.find(params[:id])
+    if @item.user_id != @item.user && @item.orders.exists?
+      redirect_to root_path
+    end
   end
 end
