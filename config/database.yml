@@ -1,4 +1,4 @@
-MySQL. Versions 5.5.8 and up are supported.
+# MySQL. Versions 5.5.8 and up are supported.
 #
 # Install the MySQL driver
 #   gem install mysql2
@@ -9,10 +9,10 @@ MySQL. Versions 5.5.8 and up are supported.
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
+
 production:
   <<: *default
   adapter: mysql2
-  encoding: utf8
   database: furima_39551_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
@@ -49,6 +49,6 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
- database: furima_originalapps_support_production
+  database: furima_originalapps_support_production
   username: furima_originalapps_support
   password: <%= ENV["FURIMA_ORIGINALAPPS_SUPPORT_DATABASE_PASSWORD"] %>
