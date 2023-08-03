@@ -12,10 +12,11 @@ MySQL. Versions 5.5.8 and up are supported.
 production:
   <<: *default
   adapter: mysql2
+  encoding: utf8
   database: furima_39551_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  socket: /tmp/mysql.sock
 
 development:
   <<: *default
