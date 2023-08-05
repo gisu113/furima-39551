@@ -1,7 +1,7 @@
 production:
   <<: *default
   adapter: mysql2
-  database: furima-39551_production
+  database: furima_39551_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
