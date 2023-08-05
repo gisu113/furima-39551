@@ -1,3 +1,11 @@
+production:
+  <<: *default
+  adapter: mysql2
+  database: furima-39551_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
+
 # MySQL. Versions 5.5.8 and up are supported.
 #
 # Install the MySQL driver
@@ -9,13 +17,12 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
-
-production:
-  <<: *default
+default: &default
   adapter: mysql2
-  database: furima_39551_production
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  password:
   socket: /tmp/mysql.sock
 
 development:
