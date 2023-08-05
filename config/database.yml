@@ -1,12 +1,3 @@
-production:
-  <<: *default
-  adapter: mysql2
-  database: furima_39551_production
-  username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
-
-# MySQL. Versions 5.5.8 and up are supported.
 #
 # Install the MySQL driver
 #   gem install mysql2
@@ -59,3 +50,10 @@ test:
   database: furima_originalapps_support_production
   username: furima_originalapps_support
   password: <%= ENV["FURIMA_ORIGINALAPPS_SUPPORT_DATABASE_PASSWORD"] %>
+  production:
+  <<: *default
+  adapter: mysql2
+  database: furima_39551_production
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock# MySQL. Versions 5.5.8 and up are supported.
