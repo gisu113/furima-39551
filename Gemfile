@@ -90,3 +90,4 @@ gem "active_hash"
 gem 'payjp'
 gem 'pry-rails'
 gem 'gon'
+gem "aws-sdk-s3", require: false
