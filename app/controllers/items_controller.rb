@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    return unless user_signed_in?
     @order = @item.orders.find_by(user_id: current_user.id)
   end
 
